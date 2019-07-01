@@ -17,12 +17,12 @@ class Formation
     private $id;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string")
      */
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string")
      */
     private $ecole;
 
@@ -53,5 +53,9 @@ class Formation
         $this->ecole = $ecole;
 
         return $this;
+    }
+    public function __toString()
+    {
+        return $this->titre;
     }
 }

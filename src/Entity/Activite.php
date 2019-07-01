@@ -33,7 +33,7 @@ class Activite
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
-    private $date_debut = false;
+    private $dateDebut;
 
     /**
      * @ORM\Column(type="boolean", options={"default":false})
@@ -43,12 +43,12 @@ class Activite
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
      */
-    private $id_experience;
+    private $idExperience;
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
      */
-    private $id_formation;
+    private $idFormation;
 
     public function getId(): ?int
     {
@@ -81,12 +81,12 @@ class Activite
 
     public function getDateDebut(): ?\DateTimeInterface
     {
-        return $this->date_debut;
+        return $this->dateDebut;
     }
 
-    public function setDateDebut(?\DateTimeInterface $date_debut): self
+    public function setDateDebut(?\DateTimeInterface $dateDebut): self
     {
-        $this->date_debut = $date_debut;
+        $this->dateDebut = $dateDebut;
 
         return $this;
     }
@@ -105,25 +105,26 @@ class Activite
 
     public function getIdExperience(): ?experience
     {
-        return $this->id_experience;
+        return $this->idExperience;
     }
 
-    public function setIdExperience(?experience $id_experience): self
+    public function setIdExperience(?experience $idExperience): self
     {
-        $this->id_experience = $id_experience;
+        $this->idExperience = $idExperience;
 
         return $this;
     }
 
     public function getIdFormation(): ?formation
     {
-        return $this->id_formation;
+        return $this->idFormation;
     }
 
-    public function setIdFormation(?formation $id_formation): self
+    public function setIdFormation(?formation $idFormation): self
     {
-        $this->id_formation = $id_formation;
+        $this->idFormation = $idFormation;
 
         return $this;
     }
+
 }
