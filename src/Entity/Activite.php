@@ -3,12 +3,28 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActiviteRepository")
  */
 class Activite
 {
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
+     */
+    protected $idExperience;
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
+     */
+    protected $idFormation;
+
+    public function __construct()
+    {
+        $this->idExperience = new ArrayCollection();
+        $this->idFormation = new ArrayCollection();
+    }
+
     const NOW = [
         0 => "Aujourd'hui",
         1 =>"date de fin"
@@ -39,16 +55,6 @@ class Activite
      * @ORM\Column(type="boolean", options={"default":false})
      */
     private $now;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
-     */
-    private $idExperience;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
-     */
-    private $idFormation;
 
     public function getId(): ?int
     {

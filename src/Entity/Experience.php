@@ -24,7 +24,7 @@ class Experience
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $titre;
+    private $poste;
 
     public function getId(): ?int
     {
@@ -43,20 +43,20 @@ class Experience
         return $this;
     }
 
-    public function getTitre(): ?string
+    public function getPoste(): ?string
     {
-        return $this->titre;
+        return $this->poste;
     }
 
-    public function setTitre(string $titre): self
+    public function setPoste(string $poste): self
     {
-        $this->titre = $titre;
+        $this->poste = $poste;
 
         return $this;
     }
 
     public function __toString()
     {
-        return $this->titre;
+        return $this->poste;
     }
 }

@@ -1,32 +1,14 @@
 easy_admin:
     entities:
-      - App\Entity\Activite
-      - App\Entity\User
-      - App\Entity\Experience
-      - App\Entity\Formation
+          Activite:
+              class: App\Entity\Activite
+              controller: App\Controller\ActiviteController
 
-#          Activite:
-#              class: App\Entity\Activite
-#              controller: App\Controller\AdminController
-#              label: 'Activités'
-#              disabled_actions: ['delete']
-#              list:
-#                    fields:
-#                      - { property: 'id_experience', label: 'Experience'}
-#                      - { property: 'id_formation', label: 'Formation'}
-#                      - { property: 'place', label: 'Placement'}
-#                      - { property: 'resume', label: 'Resume'}
-#                      - { property: 'date_debut', label: 'Date de debut'}
-#                      - { property: 'now', label: 'En cours'}
-#
-#              form:
-#                  fields:
-#                    - { property: 'id_experience'}
-#                    - { property: 'id_formation'}
-#                    - { property: 'place'}
-#                    - { property: 'resume'}
-#                    - { property: 'date_debut'}
-#                    - { property: 'now'}
+          Experience:
+              class: App\Entity\Experience
 
+          Formation:
+              class: App\Entity\Formation
 
-
+          User:
+              class: App\Entity\Formation
