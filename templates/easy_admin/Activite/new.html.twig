@@ -1,0 +1,16 @@
+{% extends '@EasyAdmin/default/new.html.twig' %}
+
+{% block main %}
+
+    {% block entity_form %}
+
+        {{ form_start(form, { 'attr' : { 'class': 'form-horizontal  new-form' } }) }}
+
+        {{ form_widget(form) }}
+
+        {{ form_row(form.submit) }}
+
+        {{ form_end(form) }}
+
+    {% endblock entity_form %}
+{% endblock %}

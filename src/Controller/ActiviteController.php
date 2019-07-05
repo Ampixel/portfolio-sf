@@ -7,6 +7,8 @@ use App\Entity\Formation;
 use App\Form\ActiviteType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
 class ActiviteController extends AdminController
@@ -17,8 +19,18 @@ class ActiviteController extends AdminController
         $this->em = $em;
     }
 
-    public function new(Request $request)
+    public function new()
     {
+        /**
+         * @var Activite $entity
+         */
+        $entity = $this->executeDynamicMethod('createNew<EntityName>Entity');
+
+        $easyadmin = $this->request->attributes->get('easyadmin');
+        $easyadmin['item'] = $entity;
+        $this->request->attributes->set('easyadmin', $easyadmin);
+        $fields = $this->entity['new']['fields'];
+
         /*
          * @var Experience $experience
          */
@@ -26,23 +38,27 @@ class ActiviteController extends AdminController
         //On récupère l'expérience
 
         /*
-         * @var Formation $formation
+         * @var Formation $newFormation
          */
-        $formation = $this->em->getRepository(Formation::class)->findAll();
+        $newFormation = $this->em->getRepository(Formation::class)->findAll();
         //on récupère la formation
 
         $experience->getId();
-        $formation->getId(); //on récupère l'id
-        $activite = new Activite(); // On initie une nouvelle entité activité
-        $form = $this->createForm(ActiviteType::class, $activite);//on créer un form qui prend la class activiteType
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()){
-
-            $this->em->persist($activite);//on persist notre activite (garde cette entitée en mémoire)
+        $newFormation->getId(); //on récupère l'id
+        $newForm = $this->createForm(ActiviteType::class, $entity, []);//on créer un form qui prend la class activiteType
+        $newForm->handleRequest($this->request);
+        if ($newForm->isSubmitted() && $newForm->isValid()){
+            $this->em->persist($entity);//on persist notre activite (garde cette entitée en mémoire)
             $this->em->flush();//Ouvre une transaction et enregistre toutes les entités
-        }
 
-        return $this->render('easy_admin.yaml', ['form' => $form->createView()]);
+        }
+        //On passe la méthode createView du formulaire à la vue afin qu'elle puisse afficher le formulaire toute seule
+//        return $this->render('easy_admin', ['form' => $newForm->createView()]);
+        $parameters = array(
+            'form' => $newForm->createView(),
+            'entity_fields' => $fields,
+            'entity' => $entity,
+        );
+        return $this->executeDynamicMethod('render<EntityName>Template', array('new', $this->entity['templates']['new'], $parameters));
     }
 }

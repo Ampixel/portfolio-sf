@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Formation;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -12,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  *
  * @package \App\Form
  */
-class FormationType extends EasyAdminFormType
+class FormationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -24,6 +25,9 @@ class FormationType extends EasyAdminFormType
     {
         $resolver->setDefaults([
             'data_class' => Formation::class
+        ]);
+        $resolver->setRequired([
+            'data-parent'
         ]);
     }
 }
