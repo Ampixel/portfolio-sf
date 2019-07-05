@@ -11,4 +11,4 @@ easy_admin:
               class: App\Entity\Formation
 
           User:
-              class: App\Entity\Formation
+              class: App\Entity\User
