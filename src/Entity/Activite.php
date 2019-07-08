@@ -43,12 +43,20 @@ class Activite
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
      */
-    private $idExperience;
+    private $entreprise;
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
+     */
+    private $poste;
 
+    /**
+ * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
+ */
+    private $ecole;
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
      */
-    private $idFormation;
+    private $titre;
 
     public function getId(): ?int
     {
@@ -103,26 +111,49 @@ class Activite
         return $this;
     }
 
-    public function getIdExperience(): ?experience
-    {        return $this->idExperience;
+    public function getEntreprise(): ?experience
+    {        return $this->entreprise;
 
     }
 
-    public function setIdExperience(?experience $idExperience): self
+    public function setEntreprise(?experience $entreprise): self
     {
-        $this->idExperience = $idExperience;
+        $this->entreprise = $entreprise;
 
         return $this;
     }
 
-    public function getIdFormation(): ?formation
-    {
-        return $this->idFormation;
+    public function getPoste(): ?experience
+    {        return $this->poste;
+
     }
 
-    public function setIdFormation(?formation $idFormation): self
+    public function setPoste(?experience $poste): self
     {
-        $this->idFormation = $idFormation;
+        $this->poste = $poste;
+
+        return $this;
+    }
+
+    public function getEcole(): ?formation
+    {
+        return $this->ecole;
+    }
+
+    public function setEcole(?formation $ecole): self
+    {
+        $this->ecole = $ecole;
+
+        return $this;
+    }
+    public function getTitre(): ?formation
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(?formation $titre): self
+    {
+        $this->titre = $titre;
 
         return $this;
     }

@@ -1,24 +1,24 @@
 easy_admin:
-    entities:
-          Activite:
-              class: App\Entity\Activite
-              controller: App\Controller\ActiviteController
-              form:
-                fields:
-                  - {property: 'resume'}
-                  - {property: 'dateDebut'}
-                  - {property: 'now'}
-                  - {property: 'place'}
-                  - {property: 'entreprise'}
-                  - {property: 'poste'}
-                  - {property: 'ecole'}
-                  - {property: 'titre'}
+  entities:
+    Activite:
+      class: App\Entity\Activite
+      controller: App\Controller\ActiviteController
+      form:
+        fields:
+          - {property: 'resume'}
+          - {property: 'dateDebut'}
+          - {property: 'now'}
+          - {property: 'place'}
+          - {property: 'entreprise', type: text}
+          - {property: 'poste', type: text}
+          - {property: 'ecole', type: text}
+          - {property: 'titre', type: text}
 
-          Experience:
-              class: App\Entity\Experience
+    Experience:
+      class: App\Entity\Experience
 
-          Formation:
-              class: App\Entity\Formation
+    Formation:
+      class: App\Entity\Formation
 
-          User:
-              class: App\Entity\User
+    User:
+      class: App\Entity\User
