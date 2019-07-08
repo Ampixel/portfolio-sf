@@ -3,6 +3,16 @@ easy_admin:
           Activite:
               class: App\Entity\Activite
               controller: App\Controller\ActiviteController
+              form:
+                fields:
+                  - {property: 'resume'}
+                  - {property: 'dateDebut'}
+                  - {property: 'now'}
+                  - {property: 'place'}
+                  - {property: 'entreprise'}
+                  - {property: 'poste'}
+                  - {property: 'ecole'}
+                  - {property: 'titre'}
 
           Experience:
               class: App\Entity\Experience

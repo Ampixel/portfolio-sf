@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Activite;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,7 +31,9 @@ class ActiviteType extends AbstractType
         $builder->add('now');
         $builder->add('place');
         $builder->add('entreprise', ExperienceType::class);
+        $builder->add('poste', ExperienceType::class);
         $builder->add('ecole', FormationType::class);
+        $builder->add('titre', FormationType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

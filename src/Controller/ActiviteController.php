@@ -7,9 +7,6 @@ use App\Entity\Formation;
 use App\Form\ActiviteType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 
 class ActiviteController extends AdminController
 {
