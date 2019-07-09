@@ -11,7 +11,7 @@ class Activite
 {
     const NOW = [
         0 => "Aujourd'hui",
-        1 =>"date de fin"
+        1 => "date de fin"
     ];
     /**
      * @ORM\Id()
@@ -48,10 +48,9 @@ class Activite
      * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
      */
     private $poste;
-
     /**
- * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
- */
+     * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
+     */
     private $ecole;
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
@@ -112,7 +111,8 @@ class Activite
     }
 
     public function getEntreprise(): ?experience
-    {        return $this->entreprise;
+    {
+        return $this->entreprise;
 
     }
 
@@ -124,7 +124,8 @@ class Activite
     }
 
     public function getPoste(): ?experience
-    {        return $this->poste;
+    {
+        return $this->poste;
 
     }
 
@@ -146,6 +147,7 @@ class Activite
 
         return $this;
     }
+
     public function getTitre(): ?formation
     {
         return $this->titre;
