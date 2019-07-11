@@ -27,8 +27,8 @@ class FormationType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Formation::class
         ]);
-        $resolver->setRequired([
-            'data-parent'
-        ]);
+//        $resolver->setRequired([
+//            'data-parent'
+//        ]);
     }
 }

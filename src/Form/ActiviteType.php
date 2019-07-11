@@ -22,9 +22,7 @@ class ActiviteType extends AbstractType
             ->add('now')
             ->add('place')
             ->add('entreprise', ExperienceType::class)
-            ->add('poste', ExperienceType::class)
-            ->add('ecole', FormationType::class)
-            ->add('titre', FormationType::class);
+            ->add('ecole', FormationType::class);
 
         $form = $builder->getForm();
         return $this->render('easyadmin', array('form' => $form->createView(),));
@@ -34,6 +32,9 @@ class ActiviteType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Activite::class
+        ]);
+        $resolver->setRequired([
+            'data-parent'
         ]);
     }
 }

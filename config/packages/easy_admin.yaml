@@ -6,13 +6,11 @@ easy_admin:
       form:
         fields:
           - {property: 'resume'}
-          - {property: 'dateDebut'}
+          - {property: 'dateDebut', format: 'j/n/Y'}
           - {property: 'now'}
           - {property: 'place'}
-          - {property: 'entreprise', type: text}
-          - {property: 'poste', type: text}
-          - {property: 'ecole', type: text}
-          - {property: 'titre', type: text}
+          - {property: 'entreprise', type: 'App\Form\ExperienceType'}
+          - {property: 'ecole', type: 'App\Form\FormationType'}
 
     Experience:
       class: App\Entity\Experience

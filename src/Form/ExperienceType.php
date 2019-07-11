@@ -2,6 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Activite;
+use App\Entity\Experience;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,8 +28,8 @@ class ExperienceType extends AbstractType
         $resolver->setDefaults([
             'data_class'=>Experience::class
         ]);
-        $resolver->setRequired([
-            'data-parent'
-        ]);
+//        $resolver->setRequired([
+//            'data-parent'
+//        ]);
     }
 }
