@@ -16,14 +16,15 @@ class ActiviteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('resume');
-        $builder->add('dateDebut');
-        $builder->add('now');
-        $builder->add('place');
-        $builder->add('entreprise', ExperienceType::class);
-        $builder->add('poste', ExperienceType::class);
-        $builder->add('ecole', FormationType::class);
-        $builder->add('titre', FormationType::class);
+        $builder
+            ->add('resume')
+            ->add('dateDebut')
+            ->add('now')
+            ->add('place')
+            ->add('entreprise', ExperienceType::class)
+            ->add('poste', ExperienceType::class)
+            ->add('ecole', FormationType::class)
+            ->add('titre', FormationType::class);
 
         $form = $builder->getForm();
         return $this->render('easyadmin', array('form' => $form->createView(),));
