@@ -17,12 +17,12 @@ class Experience
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true,)
      */
     private $entreprise;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=50, nullable=true,)
      */
     private $poste;
 
@@ -57,6 +57,6 @@ class Experience
 
     public function __toString()
     {
-        return $this->poste;
+        return $this->entreprise.' '.$this->poste;
     }
 }

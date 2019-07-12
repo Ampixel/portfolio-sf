@@ -11,7 +11,7 @@ class Activite
 {
     const NOW = [
         0 => "Aujourd'hui",
-        1 =>"date de fin"
+        1 => "date de fin"
     ];
     /**
      * @ORM\Id()
@@ -31,32 +31,28 @@ class Activite
     private $resume;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $dateDebut;
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $dateDeFin;
 
     /**
-     * @ORM\Column(type="boolean", options={"default":false})
+     * @ORM\Column(type="boolean", nullable=true, options={"default":true})
      */
     private $now;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Experience", cascade={"persist", "remove"})
      */
-    private $entreprise;
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\experience", cascade={"persist", "remove"})
-     */
-    private $poste;
+    private $idExperience;
 
     /**
- * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
- */
-    private $ecole;
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\formation", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Formation", cascade={"persist", "remove"})
      */
-    private $titre;
+    private $idFormation;
 
     public function getId(): ?int
     {
@@ -111,51 +107,41 @@ class Activite
         return $this;
     }
 
-    public function getEntreprise(): ?experience
-    {        return $this->entreprise;
-
+    public function getidFormation(): ?Formation
+    {
+        return $this->idFormation;
+    }
+    public function setidFormation(?Formation $idFormation): self
+    {
+        $this->idFormation = $idFormation;
+        return $this;
     }
 
-    public function setEntreprise(?experience $entreprise): self
+    public function getIdExperience(): ?Experience
     {
-        $this->entreprise = $entreprise;
+        return $this->idExperience;
+    }
+    public function setIdExperience(?Experience $idExperience): self
+    {
+        $this->idExperience = $idExperience;
+        return $this;
+    }
+
+    public function getDateDeFin(): ?\DateTimeInterface
+    {
+        return $this->dateDeFin;
+    }
+
+    public function setDateDeFin(?\DateTimeInterface $dateDeFin): self
+    {
+        $this->dateDeFin = $dateDeFin;
 
         return $this;
     }
 
-    public function getPoste(): ?experience
-    {        return $this->poste;
-
-    }
-
-    public function setPoste(?experience $poste): self
+    public function __toString()
     {
-        $this->poste = $poste;
-
-        return $this;
-    }
-
-    public function getEcole(): ?formation
-    {
-        return $this->ecole;
-    }
-
-    public function setEcole(?formation $ecole): self
-    {
-        $this->ecole = $ecole;
-
-        return $this;
-    }
-    public function getTitre(): ?formation
-    {
-        return $this->titre;
-    }
-
-    public function setTitre(?formation $titre): self
-    {
-        $this->titre = $titre;
-
-        return $this;
+        return $this->idExperience.' '.$this->idFormation;
     }
 
 }

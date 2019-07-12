@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Activite;
+use EasyCorp\Bundle\EasyAdminBundle\Form\Type\EasyAdminFormType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,14 +21,27 @@ class ActiviteType extends AbstractType
     {
         $builder
             ->add('resume')
-            ->add('dateDebut')
-            ->add('now')
+            ->add('dateDebut', DateType::class, [
+                'label' => 'Date de début',
+                'widget' => 'single_text'
+            ])
+            ->add('dateDeFin',DateType::class, [
+                'label' => 'Date de fin',
+                'widget' => 'single_text'
+            ])
+            ->add('now',CheckboxType::class, [
+                'label' => 'En cours',
+                'required' => false
+            ])
             ->add('place')
-            ->add('entreprise', ExperienceType::class)
-            ->add('ecole', FormationType::class);
-
-        $form = $builder->getForm();
-        return $this->render('easyadmin', array('form' => $form->createView(),));
+            ->add('idExperience', ExperienceType::class, [
+                'label' => 'Expérience',
+                'required' => false
+            ])
+            ->add('idFormation', FormationType::class, [
+                'label' => 'Formation',
+                'required' => false
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -33,8 +49,10 @@ class ActiviteType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Activite::class
         ]);
-        $resolver->setRequired([
-            'data-parent'
-        ]);
+    }
+
+    public function getParent()
+    {
+        return EasyAdminFormType::class;
     }
 }

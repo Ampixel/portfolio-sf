@@ -3,14 +3,28 @@ easy_admin:
     Activite:
       class: App\Entity\Activite
       controller: App\Controller\ActiviteController
-      form:
+      list:
         fields:
-          - {property: 'resume'}
-          - {property: 'dateDebut', format: 'j/n/Y'}
-          - {property: 'now'}
-          - {property: 'place'}
-          - {property: 'entreprise', type: 'App\Form\ExperienceType'}
-          - {property: 'ecole', type: 'App\Form\FormationType'}
+          - 'id'
+          - 'resume'
+          - 'dateDebut'
+          - 'dateDeFin'
+          - 'now'
+          - 'place'
+          - { property: 'idExperience.entreprise', label: 'Entreprise' }
+          - { property: 'idExperience.poste', label: 'Poste' }
+          - { property: 'idFormation.ecole', label: 'Ecole' }
+          - { property: 'idFormation.titre', label: 'Titre' }
+
+  #    form:
+  #     fields:
+ #        - {property: 'resume'}
+ #        - {property: 'dateDebut', type : date, type_options : {widget: 'single_text'}}
+ #        - {property: 'dateDeFin', type : date}
+ #        - {property: 'now', label: 'En cours'}
+ #        - {property: 'place', label: 'Afficher à droite'}
+ #        - {property: 'entreprise', type: 'App\Form\ExperienceType'}
+ #        - {property: 'ecole', type: 'App\Form\FormationType'}
 
     Experience:
       class: App\Entity\Experience
