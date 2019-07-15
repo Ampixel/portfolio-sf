@@ -1,50 +1,65 @@
 {% extends 'base.html.twig' %}
 
 {% block title 'Portfolio' %}
+{% set position = {{ activite.place }} %}
+
+{% endset %}
 
 {% block body %}
-    <div class="jumbotron text-center">
-        <h1>Portfolio</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid asperiores autem consequuntur ducimus,
-            fugiat minus nemo nihil quos rem, sed sequi unde veritatis! Aspernatur at ex necessitatibus quia
-            repellendus saepe?</p>
-    </div>
     <div class="container">
-        <h2>Experiences</h2>
-        <div>
-            {% for activite in activites %}
-                <li class="list-group">
-                    {% if activite.idExperience is null %}
-                        Non renseigné
-                    {% else %}
-                        {{ activite.idExperience.poste }}
-                    {% endif %}
-                    =>
-                    {% if activite.idExperience  is null %}
-                        Non renseigné
-                    {% else %}
-                        {{ activite.idExperience.entreprise }}
-                    {% endif %}
-                </li>
-            {% endfor %}
+        <div class="text-center">
+            <h2>My resume</h2>
+            <span class="separateur"></span>
         </div>
-        <h2>Formations</h2>
+        <div class="timeline-category">
+            <a class="titre_timeline" href="">Experiences</a>
+            <hr class="separation">
+            <div>
+                {% for activite in activites %}
+                    <div>
+                        {% if activite.idExperience is null %}
+
+                        {% else %}
+                            <h3>{{ activite.idExperience.poste }}</h3>
+                            <br>
+                        {% endif %}
+
+                        {% if activite.idExperience  is null %}
+
+                        {% else %}
+                            <h4>{{ activite.idExperience.entreprise }}
+                                <i class="fa fa-circle" style="color: #aa1111"></i>
+                                {{ activite.dateDebut|date('Y') }}
+                            </h4>
+                            <br>
+                            <p>{{ activite.resume }}</p>
+                        {% endif %}
+
+                    </div>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+
+        <h3>Formations</h3>
         <div>
             {% for activite in activites %}
                 <li class="list-group">
-                    {% if activite.idExperience is null %}
-                        Non renseigné
+                    {% if activite.idFormation is null %}
+
                     {% else %}
                         {{ activite.idFormation.ecole }}
                     {% endif %}
-                    =>
-                    {% if activite.idExperience  is null %}
-                        Non renseigné
+
+                    {% if activite.idFormation  is null %}
+
                     {% else %}
                         {{ activite.idFormation.titre }}
                     {% endif %}
                 </li>
             {% endfor %}
         </div>
+
+
     </div>
 {% endblock %}
