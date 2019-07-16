@@ -176,6 +176,17 @@ a:hover {
     margin-top: 13px;
 }
 
+.encart_post_icon {
+    position: absolute;
+    background-color: #ccd0db;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: -7px;
+    z-index: 6;
+    margin: 32px 0px 0px 545px;
+}
+
 .hidden{
     visibility: hidden;
     line-height: 0;
