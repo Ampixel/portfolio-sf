@@ -1,9 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title 'Portfolio' %}
-{% set position = {{ activite.place }} %}
-
-{% endset %}
 
 {% block body %}
     <div class="container">
@@ -12,54 +9,10 @@
             <span class="separateur"></span>
         </div>
         <div class="timeline-category">
-            <a class="titre_timeline" href="">Experiences</a>
-            <hr class="separation">
-            <div>
-                {% for activite in activites %}
-                    <div>
-                        {% if activite.idExperience is null %}
-
-                        {% else %}
-                            <h3>{{ activite.idExperience.poste }}</h3>
-                            <br>
-                        {% endif %}
-
-                        {% if activite.idExperience  is null %}
-
-                        {% else %}
-                            <h4>{{ activite.idExperience.entreprise }}
-                                <i class="fa fa-circle" style="color: #aa1111"></i>
-                                {{ activite.dateDebut|date('Y') }}
-                            </h4>
-                            <br>
-                            <p>{{ activite.resume }}</p>
-                        {% endif %}
-
-                    </div>
-                    <br>
-                {% endfor %}
-            </div>
+            {{ include('pages/experience.html.twig') }}
         </div>
-
-        <h3>Formations</h3>
-        <div>
-            {% for activite in activites %}
-                <li class="list-group">
-                    {% if activite.idFormation is null %}
-
-                    {% else %}
-                        {{ activite.idFormation.ecole }}
-                    {% endif %}
-
-                    {% if activite.idFormation  is null %}
-
-                    {% else %}
-                        {{ activite.idFormation.titre }}
-                    {% endif %}
-                </li>
-            {% endfor %}
+        <div class="timeline-category">
+            {{ include('pages/formation.html.twig') }}
         </div>
-
-
     </div>
 {% endblock %}

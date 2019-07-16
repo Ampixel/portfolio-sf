@@ -1,0 +1,32 @@
+    <a class="titre_timeline" href="">Experiences</a>
+    <hr class="separation">
+    <div>
+        {% for activite in activites %}
+        {% set position = activite.place %}
+        {% if position == true %}
+        <div class="encart_right">
+            {% else %}
+            <div class="encart_left">
+                {% endif %}
+                {% if activite.idExperience is null %}
+
+                {% else %}
+                    <h3>{{ activite.idExperience.poste }}</h3>
+                    <br>
+                {% endif %}
+                {% if activite.idExperience  is null %}
+
+                {% else %}
+                    <h4>{{ activite.idExperience.entreprise }}
+                        <i class="fa fa-circle" style="color: #aa1111"></i>
+                        {{ activite.dateDebut|date('Y') }}
+                    </h4>
+                    <br>
+                    <p>{{ activite.resume }}</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+
