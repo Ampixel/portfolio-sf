@@ -1,30 +1,29 @@
 <a class="titre_timeline" href="">Formations</a>
+<div class="iconspacefor">
+    <i class="fa fa-book"></i>
+</div>
 <div>
     {% for activite in activites %}
+    {% if activite.idFormation is null %}
+    {% else %}
     {% set position = activite.place %}
     {% if position == true %}
-    <div class="encart_right">
+    <div class="encart_left">
         {% else %}
-        <div class="encart_left">
+        <div class="encart_right">
             {% endif %}
-            {% if activite.idFormation is null %}
-
-            {% else %}
+            {% if activite.idFormation %}
                 <h3>{{ activite.idFormation.titre }}</h3>
                 <br>
-            {% endif %}
-            {% if activite.idFormation  is null %}
-
-            {% else %}
                 <h4>{{ activite.idFormation.ecole }}
-                    <i class="fa fa-circle" style="color: #aa1111"></i>
+                    <i class="fa fa-circle rond"></i>
                     {{ activite.dateDebut|date('Y') }}
                 </h4>
                 <br>
                 <p>{{ activite.resume }}</p>
             {% endif %}
         </div>
+        {% endif %}
         {% endfor %}
     </div>
-</div>
-<br>
+    <br>
