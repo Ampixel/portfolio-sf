@@ -10,7 +10,7 @@ easy_admin:
           - 'dateDebut'
           - 'dateDeFin'
           - 'now'
-          - 'place'
+          - { property: 'place', label: 'à gauche' }
           - { property: 'idExperience.entreprise', label: 'Entreprise' }
           - { property: 'idExperience.poste', label: 'Poste' }
           - { property: 'idFormation.ecole', label: 'Ecole' }

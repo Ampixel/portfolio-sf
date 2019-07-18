@@ -25,7 +25,7 @@ class HomeController extends AbstractController {
         /**Permet de faire le liens entre le model et la vue ^^
         on affiche les activités que l'on recupère dans le getRepository(Activite::class)->findAll();
          et on les affiche dans le homeController  */
-        $activites = $this->em->getRepository(Activite::class)->findAll();
+        $activites = $this->em->getRepository(Activite::class)->findby(array (), array('dateDebut'=>'DESC'));
         return $this->render('pages/home.html.twig', [
             'activites' => $activites
         ]);

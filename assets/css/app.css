@@ -42,25 +42,11 @@ a:hover {
     text-decoration: none;
 }
 
-.encart_right{
-    text-align: left;
-    width: 45%;
-    margin: -150px 0px 0px 578px;
-    padding: 10px;
-}
-
-.encart_left{
-    text-align: right;
-    width: 45%;
-    margin: -10px 0px 0px 30px;
-    padding: 10px;
-}
-
 .separation {
     clear: both;
     position: absolute;
     margin: 0px 0px 0px 552px;
-    height: 100%;
+    height: 120%;
     width: 3px;
     background: #dbdde5;
     z-index: -1;
@@ -128,10 +114,33 @@ a:hover {
     line-height: 40px;
 }
 
+.iconspace_end {
+    position: absolute;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #cbcfdb;
+    color: #5f7183;
+    text-align: center;
+    border-radius: 50%;
+    z-index: 7;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    left: 48.4%
+}
+
 .rond{
     color: #aa1111;
     font-size: 5px;
     margin: 3px;
+}
+
+.encart_right{
+    text-align: left;
+    width: 45%;
+    margin: -110px 0px 0px 578px;
+    padding: 10px;
 }
 
 .encart_right:hover {
@@ -155,6 +164,35 @@ a:hover {
     margin-top: 13px;
 }
 
+.encart_post_icon {
+    position: absolute;
+    background-color: #ccd0db;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: -7px;
+    z-index: 6;
+    margin: 23px 0px 0px -42px;
+}
+
+.encart_right:hover .encart_post_icon {
+    position: absolute;
+    background-color: #e74b3b;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: -7px;
+    z-index: 6;
+    margin: 23px 0px 0px -42px;
+}
+
+.encart_left{
+    text-align: right;
+    width: 45%;
+    margin: -10px 0px 0px 30px;
+    padding: 10px;
+}
+
 .encart_left:hover {
     background-color: #fff;
     border-radius: 5px;
@@ -175,28 +213,6 @@ a:hover {
     border-width: 13px;
 }
 
-.encart_post_icon {
-    position: absolute;
-    background-color: #ccd0db;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-left: -7px;
-    z-index: 6;
-    margin: 40px 0px 0px -42px;
-}
-
-.encart_right:hover .encart_post_icon {
-    position: absolute;
-    background-color: #e74b3b;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-left: -7px;
-    z-index: 6;
-    margin: 40px 0px 0px -42px;
-}
-
 .encart_post_icon-left{
     position: absolute;
     background-color: #ccd0db;
@@ -205,7 +221,7 @@ a:hover {
     border-radius: 50%;
     margin-left: -7px;
     z-index: 50;
-    margin: 30px 50px 50px 506px;
+    margin: 20px 50px 50px 506px;
 }
 
 .encart_left:hover .encart_post_icon-left{
@@ -216,23 +232,7 @@ a:hover {
     border-radius: 50%;
     margin-left: -7px;
     z-index: 50;
-    margin: 30px 50px 50px 506px;
-}
-
-.iconspace_end {
-    position: absolute;
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: #cbcfdb;
-    color: #5f7183;
-    text-align: center;
-    border-radius: 50%;
-    z-index: 7;
-    font-size: 18px;
-    line-height: 40px;
-    margin-bottom: 10px;
-    left: 48.4%
+    margin: 20px 50px 50px 506px;
 }
 
 .hidden{
