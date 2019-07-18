@@ -9,8 +9,10 @@
     {% set position = activite.place %}
     {% if position == true %}
     <div class="encart_left">
+        <div class="encart_post_icon-left"></div>
         {% else %}
         <div class="encart_right">
+            <div class="encart_post_icon"></div>
             {% endif %}
             {% if activite.idFormation %}
                 <h3>{{ activite.idFormation.titre }}</h3>
