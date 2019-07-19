@@ -1,4 +1,17 @@
 easy_admin:
+  design:
+    menu:
+      - label: 'Gestion'
+        children:
+            - { entity: 'Activite', label: 'Activités' }
+            - { entity: 'Experience', label: 'Experiences' }
+            - { entity: 'Formation', label: 'Formations' }
+
+      - { entity: 'Users', label: 'Utilisateurs', icon: 'user' }
+      - label: 'Retour Portfolio'
+        icon: history
+        route: home
+
   entities:
     Activite:
       class: App\Entity\Activite
@@ -7,8 +20,8 @@ easy_admin:
         fields:
           - 'id'
           - 'resume'
-          - 'dateDebut'
-          - 'dateDeFin'
+          - { property: 'dateDebut', label: 'Début' }
+          - { property: 'dateDeFin', label: 'Fin' }
           - 'now'
           - { property: 'place', label: 'à gauche' }
           - { property: 'idExperience.entreprise', label: 'Entreprise' }
