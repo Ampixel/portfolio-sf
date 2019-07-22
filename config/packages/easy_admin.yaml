@@ -7,7 +7,7 @@ easy_admin:
             - { entity: 'Experience', label: 'Experiences' }
             - { entity: 'Formation', label: 'Formations' }
 
-      - { entity: 'Users', label: 'Utilisateurs', icon: 'user' }
+      - { entity: 'User', label: 'Utilisateurs', icon: 'user' }
       - label: 'Retour Portfolio'
         icon: history
         route: home
