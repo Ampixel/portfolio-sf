@@ -20,7 +20,12 @@
                     <br>
                     <h4>{{ activite.idExperience.entreprise }}
                         <i class="fa fa-circle rond"></i>
-                        {{ activite.dateDebut|date('Y') }}
+                        {{ activite.dateDebut|date('M Y') }} -
+                        {% if activite.now %}
+                            En cours
+                        {% else %}
+                            {{ activite.dateDeFin|date('M Y') }}
+                        {% endif %}
                     </h4>
                     <br>
                     <p>{{ activite.resume }}</p>

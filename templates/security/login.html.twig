@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container mt-4">
 
         <form method="post" class="text-center">
             {% if error %}
@@ -11,7 +11,7 @@
             {% endif %}
 
             <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-4 offset-md-4">
                 <label for="inputEmail" class="sr-only">Email</label>
                 <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
@@ -35,7 +35,7 @@
 
 
             <button class="btn btn-lg btn-primary" type="submit">
-                Sign in
+                Se connecter
             </button>
         </form>
     </div>

@@ -42,7 +42,8 @@ a:hover {
     text-decoration: none;
 }
 
-.separation {
+/* Min-width */
+.separation_min {
     clear: both;
     position: absolute;
     margin: 0px 0px 0px 552px;
@@ -51,6 +52,18 @@ a:hover {
     background: #dbdde5;
     z-index: -1;
     border: none;
+}
+@media (min-width: 1499px) {
+    .separation_min  {
+        clear: both;
+        position: absolute;
+        margin: 0px 0px 0px 552px;
+        height: 95%;
+        width: 3px;
+        background: #dbdde5;
+        z-index: -1;
+        border: none;
+    }
 }
 
 .separateur{

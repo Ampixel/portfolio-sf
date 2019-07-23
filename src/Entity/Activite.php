@@ -9,10 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Activite
 {
-    const NOW = [
-        0 => "Aujourd'hui",
-        1 => "date de fin"
-    ];
+//    const NOW = [
+//        0 => "Aujourd'hui",
+//        1 => "date de fin"
+//    ];
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
