@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3939d614e145b226a99d3ec8d8633fa",
+    "content-hash": "4a5629f37402e5e4ae756223afc9896b",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -4348,7 +4348,7 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v4.3.1",
+            "version": "v4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
